@@ -16,12 +16,17 @@ class Home extends Component {
     // console.warn('Button clicked! (Test av console.warn) ');
   };
 
+  goToSwiper = () => {
+    this.props.navigation.navigate('Swiper');
+    // console.warn('Button clicked! (Test av console.warn) ');
+  };
+
   render() {
     return (
       <Container>
         <StatusBar translucent={false} barStyle="light-content" />
         <Logo />
-        <CustomButton onPress={this.goToHome} text="TestScreen" />
+        <CustomButton onPress={this.goToSwiper} text="TestScreen" />
       </Container>
     );
   }
