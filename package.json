@@ -1,7 +1,8 @@
 {
-  "name": "CurrencyConverter-Starter",
+  "name": "Edutainment-App",
   "version": "0.1.0",
   "private": true,
+  "orientation": "portrait",
   "devDependencies": {
     "babel-eslint": "^8.0.2",
     "eslint": "^4.12.0",

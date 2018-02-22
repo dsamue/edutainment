@@ -4,8 +4,9 @@ import Home from '../screens/Home';
 import TestScreen from '../screens/TestScreen';
 import Swiper from '../screens/Swiper';
 import SwipeTest from '../screens/SwipeTest';
+import List from '../screens/List';
 
-export default StackNavigator({
+export default StackNavigator({  
   Home: {
     screen: Home,
     navigationOptions: {
@@ -26,6 +27,12 @@ export default StackNavigator({
   },
   SwipeTest: {
     screen: SwipeTest,
+    navigationOptions: {
+      header: () => null,
+    },
+  },
+  List: {
+    screen: List,
     navigationOptions: {
       header: () => null,
     },

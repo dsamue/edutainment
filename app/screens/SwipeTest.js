@@ -15,7 +15,7 @@ class SwipeTest extends Component {
         <ScrollView horizontal={true} pagingEnabled>
           <View style={{flex: 1, backgroundColor:'red', width:deviceWidth}}></View>
           <View style={{flex: 1, backgroundColor:'yellow', width:deviceWidth}}></View>
-          <Container style={{flex: 1, backgroundColor:'blue', width:deviceWidth}} />
+          <Container />
         </ScrollView>
       </Container>
     );

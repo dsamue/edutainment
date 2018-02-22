@@ -11,7 +11,7 @@ EStyleSheet.build({
   $backgroundGreen: '#D1E9D6',
   $white: '#FFFFFF',
   // $screenWidth = screenWidth,
-  $outline: 1,
+  // $outline: 1,
 });
 
 export default () => <Navigator />;

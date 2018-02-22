@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { StatusBar } from 'react-native';
+import { StatusBar, View } from 'react-native';
 
 import { Container } from '../components/Container';
 import { Logo } from '../components/Logo';
@@ -11,14 +11,12 @@ class Home extends Component {
     navigation: PropTypes.object,
   };
 
-  goToHome = () => {
-    this.props.navigation.navigate('Home');
-    // console.warn('Button clicked! (Test av console.warn) ');
-  };
-
   goToSwiper = () => {
     this.props.navigation.navigate('Swiper');
-    // console.warn('Button clicked! (Test av console.warn) ');
+  };
+
+  goToSwipeTest = () => {
+    this.props.navigation.navigate('SwipeTest');
   };
 
   render() {
@@ -26,7 +24,10 @@ class Home extends Component {
       <Container>
         <StatusBar translucent={false} barStyle="light-content" />
         <Logo />
-        <CustomButton onPress={this.goToSwiper} text="TestScreen" />
+        <View style={{alignSelf: 'stretch', flexDirection: 'row', justifyContent: 'space-around'}}>
+          <CustomButton onPress={this.goToSwipeTest} text="Swipe Test" />
+          <CustomButton onPress={this.goToSwiper} text="Swiper" />
+        </View>
       </Container>
     );
   }
