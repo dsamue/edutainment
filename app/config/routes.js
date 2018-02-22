@@ -3,6 +3,7 @@ import { StackNavigator } from 'react-navigation';
 import Home from '../screens/Home';
 import TestScreen from '../screens/TestScreen';
 import Swiper from '../screens/Swiper';
+import SwipeTest from '../screens/SwipeTest';
 
 export default StackNavigator({
   Home: {
@@ -19,6 +20,12 @@ export default StackNavigator({
   },
   TestScreen: {
     screen: TestScreen,
+    navigationOptions: {
+      header: () => null,
+    },
+  },
+  SwipeTest: {
+    screen: SwipeTest,
     navigationOptions: {
       header: () => null,
     },

@@ -13,7 +13,7 @@ class Home extends Component {
   };
 
   handleFirstButtonPress = () => {
-    this.props.navigation.navigate('TestScreen');
+    this.props.navigation.navigate('SwipeTest');
     // console.warn('Button clicked! (Test av console.warn) ');
   };
 
