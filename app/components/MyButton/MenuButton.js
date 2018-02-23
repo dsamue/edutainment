@@ -1,28 +1,22 @@
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
-import { StatusBar, View, Image, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { Image, TouchableOpacity } from 'react-native';
 
-class MenuButton extends Component {
-  static propTypes = {
-    navigation: PropTypes.object,
-  };
+import styles from './styles';
 
-  goToList = () => {
-    this.props.navigation.navigate('List');
-  };
+const MenuButton = ({ onPress }) => (
+  <TouchableOpacity 
+    style={styles.hamburgerIconWrapper} 
+    onPress={onPress}>
+    <Image
+      style={styles.hamburgerIcon}
+      source={require('../../icons/hamburger.png')}
+    />
+  </TouchableOpacity>
+);
 
-  render() {
-    return (
-        <TouchableOpacity 
-          style={{position: 'absolute', left:15, top:300}} 
-          onPress={this.goToList}>
-            <Image
-            style={{ width: 30, height: 30}}
-            source={require('../../icons/hamburger.png')}
-          />
-        </TouchableOpacity>
-    );
-  }
-}
+MenuButton.propTypes = {
+  onPress: PropTypes.func,
+};
 
 export default MenuButton;

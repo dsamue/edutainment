@@ -1,4 +1,3 @@
-// import { StyleSheet } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 export default EStyleSheet.create({
@@ -18,14 +17,18 @@ export default EStyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  icon: {
-    width: 19,
-    marginRight: 11,
-  },
   text: {
     color: '$primaryGreen',
     fontSize: 20,
-    // paddingVertical: 20,
     fontWeight: '800',
+  },
+  hamburgerIcon: {
+    width: 30, 
+    height: 30,
+  },
+  hamburgerIconWrapper: {
+    position: 'absolute', 
+    left: 15, 
+    top: 300,
   },
 });
