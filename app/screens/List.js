@@ -24,7 +24,7 @@ export default class FlatListBasics extends Component {
         <Text style={styles.heading}>Uppgifter</Text>
             <FlatList
             data={[
-                {key: 'Uppgift 1', screen: 'SwipeTest'},
+                {key: 'Jetline', screen: 'JetlineHog1'},
                 {key: 'Uppgift 2', screen: 'SwipeTest'},
                 {key: 'Uppgift 3', screen: 'SwipeTest'},
             ]}

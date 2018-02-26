@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { StatusBar, View, Image, TouchableOpacity } from 'react-native';
+import { StatusBar, ScrollView, View, Image, TouchableOpacity } from 'react-native';
 
 import { Container } from '../components/Container';
 import { IntroText } from '../components/Text';

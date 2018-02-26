@@ -1,4 +1,6 @@
 import Container from './Container';
+import SwipeContainer from './SwipeContainer';
+
 import styles from './styles';
 
-export { Container, styles };
+export { Container, SwipeContainer, styles };

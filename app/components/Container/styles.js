@@ -11,4 +11,12 @@ export default EStyleSheet.create({
     backgroundColor: '$primaryGreen',
     width: deviceWidth,
   },
+  SwipeContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '$backgroundGreen',
+    width: deviceWidth,
+    color: 'grey',
+  },
 });

@@ -5,6 +5,7 @@ import TestScreen from '../screens/TestScreen';
 import Swiper from '../screens/Swiper';
 import SwipeTest from '../screens/SwipeTest';
 import List from '../screens/List';
+import JetlineHog1 from '../screens/JetlineHog1';
 
 export default StackNavigator({  
   Home: {
@@ -33,6 +34,12 @@ export default StackNavigator({
   },
   List: {
     screen: List,
+    navigationOptions: {
+      header: () => null,
+    },
+  },
+  JetlineHog1: {
+    screen: JetlineHog1,
     navigationOptions: {
       header: () => null,
     },
