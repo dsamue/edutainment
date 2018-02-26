@@ -29,6 +29,6 @@ export default EStyleSheet.create({
   hamburgerIconWrapper: {
     position: 'absolute', 
     left: 15, 
-    top: 300,
+    top: 30,
   },
 });

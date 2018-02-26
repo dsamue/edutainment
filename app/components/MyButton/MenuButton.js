@@ -1,22 +1,20 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import { Image, TouchableOpacity } from 'react-native';
+import PropTypes from "prop-types";
+import React from "react";
+import { Image, TouchableOpacity, Text } from "react-native";
 
-import styles from './styles';
+import styles from "./styles";
 
 const MenuButton = ({ onPress }) => (
-  <TouchableOpacity 
-    style={styles.hamburgerIconWrapper} 
-    onPress={onPress}>
+  <TouchableOpacity style={styles.hamburgerIconWrapper} onPress={onPress}>
     <Image
       style={styles.hamburgerIcon}
-      source={require('../../icons/hamburger.png')}
+      source={require("../../icons/hamburger.png")}
     />
   </TouchableOpacity>
 );
 
 MenuButton.propTypes = {
-  onPress: PropTypes.func,
+  onPress: PropTypes.func
 };
 
 export default MenuButton;
