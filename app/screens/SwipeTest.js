@@ -18,6 +18,7 @@ class SwipeTest extends Component {
           <View style={{flex: 1, backgroundColor:'red', width:deviceWidth, alignItems: 'center', justifyContent:'center'}}><Text style={styles.text}>1</Text></View>
           <View style={{flex: 1, backgroundColor:'orange', width:deviceWidth, alignItems: 'center', justifyContent:'center'}}><Text style={styles.text}>2</Text></View>
           <Container><Text style={styles.text}>3</Text></Container>
+          <Container><Text style={styles.text}>4</Text></Container>
         </ScrollView>
       </Container>
     );

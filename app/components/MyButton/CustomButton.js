@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import PropTypes from "prop-types";
+import React from "react";
+import { Text, TouchableOpacity, View } from "react-native";
 
-import styles from './styles';
+import styles from "./styles";
 
 const CustomButton = ({ onPress, text }) => (
   <TouchableOpacity style={styles.container} onPress={onPress}>
@@ -16,7 +16,7 @@ const CustomButton = ({ onPress, text }) => (
 
 CustomButton.propTypes = {
   text: PropTypes.string,
-  onPress: PropTypes.func,
+  onPress: PropTypes.func
 };
 
 export default CustomButton;

@@ -13,10 +13,6 @@ export default EStyleSheet.create({
     borderRadius: 20,
     marginTop: 50,
   },
-  wrapper: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
   text: {
     color: '$primaryGreen',
     fontSize: 20,
