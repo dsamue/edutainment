@@ -8,7 +8,8 @@ EStyleSheet.build({
   $buttonGreen: '#477853',
   $backgroundGreen: '#D1E9D6',
   $white: '#FFFFFF',
-  $outline: 1,
+  $textGrey: '#424242',
+  // $outline: 1,
 });
 
 export default () => <Navigator />;

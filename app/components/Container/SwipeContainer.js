@@ -4,7 +4,7 @@ import { View } from 'react-native';
 
 import styles from './styles';
 
-const SwipeContainer = ({ children }) => <View style={styles.SwipeContainer}>{children}</View>;
+const SwipeContainer = ({ children }) => <View style={styles.swipeContainer}>{children}</View>;
 
 SwipeContainer.propTypes = {
   children: PropTypes.any,
