@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React, { Component } from "react";
-import { StatusBar, ScrollView, Text, View, Dimensions, TextInput,KeyboardAvoidingView } from "react-native";
+import { StatusBar, ScrollView, Text, View, Dimensions, TextInput,KeyboardAvoidingView, Modal, TouchableOpacity, TouchableHighlight } from "react-native";
 import EStyleSheet from "react-native-extended-stylesheet";
 import { SwipeContainer } from "../components/Container";
 import containerStyles from "../components/Container/styles";
@@ -11,8 +11,32 @@ class JetlineHog1 extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { text: '' };
+    this.state = { text: '', modalVisible: false, myPopUpVisible: false };
+    
   }
+
+  test = () => {
+    console.warn('test1');
+  };
+
+  // toggle = () => {
+  //   this.setMyPopUpVisible(!this.state.myPopUpVisible);
+  // };
+
+  test2 = (text) => {
+    this.setState({text});
+    // console.warn('test2');
+    if (text == 5) this.setMyPopUpVisible(!this.state.myPopUpVisible);
+  };
+
+  setMyPopUpVisible(visible) {
+    this.setState({myPopUpVisible: visible});
+    // console.warn('visible'); 
+    // console.warn(this.state.myPopUpVisible);
+
+  }
+
+
   render() {
     return (
       <SwipeContainer>
@@ -69,16 +93,53 @@ class JetlineHog1 extends Component {
                   keyboardType={'numeric'} 
                   returnKeyType="done"
                   style={{height: 40, width:70, borderRadius: 5, backgroundColor:'white', textAlign:'center', margin: 5}}
-                  onChangeText={(text) => this.setState({text})}
+                  onChangeText={(text) => this.test2(text)}
                   value={this.state.text}
                 />
                 <Text style={styles.greyText}> m/s</Text>
               </View>
-          </KeyboardAvoidingView>
+              {this.state.myPopUpVisible &&<View style={{width:100, height:100, position:'absolute', backgroundColor: 'white', alignItems:'center', justifyContent: 'center'}}>
+              <TouchableOpacity style={{flex: 1}} onPress={() => {
+                  this.setMyPopUpVisible(!this.state.myPopUpVisible);
+                }}><Text>Rätt svar!</Text></TouchableOpacity></View>} 
+              
+          </KeyboardAvoidingView>                                                                                                       
     
-
+          {/* this.setMyPopUpVisible(!this.state.myPopUpVisible)
+          onPress={() => {
+                  this.setModalVisible(!this.state.modalVisible);
+                }}> */}
           <SwipeContainer>
             <Text style={styles.headerText}>3</Text> 
+            <View style={{marginTop: 22}}>
+        <Modal
+          animationType="slide"
+          transparent={false}
+          visible={this.state.modalVisible}
+          onRequestClose={() => {
+            alert('Modal has been closed.');
+          }}>
+          <View style={{marginTop: 22, marginLeft: 10}}>
+            <View>
+              <Text>Hello World!</Text>
+
+              <TouchableHighlight
+                onPress={() => {
+                  this.setModalVisible(!this.state.modalVisible);
+                }}>
+                <Text>Hide Modal</Text>
+              </TouchableHighlight>
+            </View>
+          </View>
+        </Modal>
+
+        <TouchableHighlight
+          onPress={() => {
+            this.setModalVisible(true);
+          }}>
+          <Text>Show Modal</Text>
+        </TouchableHighlight>
+      </View>
           </SwipeContainer>
 
         </ScrollView>
