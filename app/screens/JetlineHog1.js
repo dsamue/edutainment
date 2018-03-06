@@ -19,6 +19,7 @@ import { SwipeContainer } from "../components/Container";
 import containerStyles from "../components/Container/styles";
 
 const deviceWidth = Dimensions.get("window").width;
+let countWrong = 0; 
 
 class JetlineHog1 extends Component {
   constructor(props) {
@@ -46,8 +47,12 @@ class JetlineHog1 extends Component {
       this.setMyPopUpVisible(!this.state.myPopUpVisible);
     else if (this.state.text == "") 
       null
-    else
+    else{
+      // console.warn('In else');
+      countWrong = countWrong +1; 
+      // console.warn(countWrong);
       this.setWrongVisible(!this.state.wrongVisible);
+    }
   };
 
   setModalVisible(visible) {
@@ -230,7 +235,7 @@ class JetlineHog1 extends Component {
                     source={require("../assets/icons/cross.png")}
                     // source={require('../../images/test.png')}
                   />
-                  <Text style={styles.greyText}>Fel svar..</Text>
+                  <Text style={styles.greyText}>Inte riktigt rätt..</Text>
                 </View>
               )}
             </View>
