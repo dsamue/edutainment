@@ -12,6 +12,7 @@ import {
   TouchableOpacity,
   TouchableHighlight,
   TouchableWithoutFeedback,
+  Image,
 } from "react-native";
 import EStyleSheet from "react-native-extended-stylesheet";
 import { SwipeContainer } from "../components/Container";
@@ -36,7 +37,8 @@ class JetlineHog1 extends Component {
   test2 = text => {
     // this.setState({ text });
     // console.warn(this.state.text);
-    if (this.state.text == 5) this.setMyPopUpVisible(!this.state.myPopUpVisible);
+    if (this.state.text == 5)
+      this.setMyPopUpVisible(!this.state.myPopUpVisible);
   };
 
   setModalVisible(visible) {
@@ -114,55 +116,86 @@ class JetlineHog1 extends Component {
               </Text>
             </View>
             <View
-              style={[
-                {
-                  flex: 0.4,
-                  flexDirection: "row",
-                  alignItems: "center"
-                },
-                styles.textWrapper
-              ]}
+              style={{
+                flex: 0.3,
+                flexDirection: "column",
+                justifyContent: "center"
+              }}
             >
-              <Text style={styles.greyText}>Svar: </Text>
-              <TextInput
-                keyboardType={"numeric"}
-                returnKeyType="done"
-                style={{
-                  height: 40,
-                  width: 70,
-                  borderRadius: 5,
-                  backgroundColor: "white",
-                  textAlign: "center",
-                  margin: 5
-                }}
-                onChangeText={(text) => this.setState({text})}
-                value={this.state.text}
-                onSubmitEditing={(event, text) => {
-                  this.test2(text);}}
-              />
-              <Text style={styles.greyText}> m/s</Text>
-            </View>
-            {this.state.myPopUpVisible && (
               <View
-                style={{
-                  width: 100,
-                  height: 100,
-                  position: "absolute",
-                  backgroundColor: "white",
-                  alignItems: "center",
-                  justifyContent: "center"
-                }}
+                style={[
+                  {
+                    flexDirection: "row",
+                    alignItems: "center"
+                  },
+                  styles.textWrapper
+                ]}
               >
-                <TouchableOpacity
-                  style={{ flex: 1 }}
-                  onPress={() => {
-                    this.setMyPopUpVisible(!this.state.myPopUpVisible);
+                <Text style={styles.greyText}>Svar: </Text>
+                <TextInput
+                  keyboardType={"numeric"}
+                  returnKeyType="done"
+                  style={{
+                    height: 40,
+                    width: 70,
+                    borderRadius: 5,
+                    backgroundColor: "white",
+                    textAlign: "center",
+                    margin: 5
                   }}
-                >
-                  <Text>Rätt svar!</Text>
-                </TouchableOpacity>
+                  onChangeText={(text) => {this.setState({ text }); this.setState({ myPopUpVisible: false });}}
+                  // onClick=     {(event) => { func1(); func2();}}
+                  value={this.state.text}
+                  onSubmitEditing={(event, text) => {
+                    this.test2(text);
+                  }}
+                />
+                <Text style={styles.greyText}> m/s</Text>
+
+                {/* // <View
+                //   style={{
+                //     width: 100,
+                //     height: 100,
+                //     position: "absolute",
+                //     backgroundColor: "white",
+                //     alignItems: "center",
+                //     justifyContent: "center"
+                //   }}
+                // >
+                //   <TouchableOpacity
+                //     style={{ flex: 1 }}
+                //     onPress={() => {
+                //       this.setMyPopUpVisible(!this.state.myPopUpVisible);
+                //     }}
+                //   >
+                //     <Text>Rätt svar!</Text>
+                //   </TouchableOpacity>
+                // </View>
+              )} */}
               </View>
-            )}
+
+              {this.state.myPopUpVisible && (
+                <View
+                  style={[
+                    {
+                      flexDirection: "row",
+                      alignItems: "center",
+                      paddingTop: 15,
+                    },
+                    styles.textWrapper
+                  ]}
+                >
+                  <Image style={{height:20, width:20, marginRight:10,}}
+                    // style={styles.logo}
+                    source={require("../assets/icons/check.png")}
+                    // source={require('../../images/test.png')}
+                  />
+                  <Text style={styles.greyText}>Rätt svar!</Text>
+                </View>
+              )}
+
+
+            </View>
           </KeyboardAvoidingView>
 
           {/* this.setMyPopUpVisible(!this.state.myPopUpVisible)
@@ -172,41 +205,41 @@ class JetlineHog1 extends Component {
           <SwipeContainer>
             <Text style={styles.headerText}>3</Text>
 
-              <Modal
-                animationType="fade"
-                transparent={true}
-                visible={this.state.modalVisible}
-                onRequestClose={() => {
-                  alert("Modal has been closed.");
-                }}
-              >
-                <TouchableOpacity
-                  style={{
-                    marginTop: 22,
-                    width:200,
-                    height:200,
-                    backgroundColor: 'white',
-                    borderRadius: 5,
-                    alignItems: "center",
-                    justifyContent: "center"
-                  }}
-                  onPress={() => {
-                    this.setModalVisible(!this.state.modalVisible);
-                  }}
-                >
-                  <View>
-                    <Text style={styles.subHeaderText}>Rätt svar!</Text>
-                  </View>
-                </TouchableOpacity>
-              </Modal>
-
+            <Modal
+              animationType="fade"
+              transparent={true}
+              visible={this.state.modalVisible}
+              onRequestClose={() => {
+                alert("Modal has been closed.");
+              }}
+            >
               <TouchableOpacity
+                style={{
+                  marginTop: 22,
+                  width: 200,
+                  height: 200,
+                  backgroundColor: "white",
+                  borderRadius: 5,
+                  alignItems: "center",
+                  justifyContent: "center"
+                }}
                 onPress={() => {
-                  this.setModalVisible(true);
+                  this.setModalVisible(!this.state.modalVisible);
                 }}
               >
-                <Text>Show Modal</Text>
+                <View>
+                  <Text style={styles.subHeaderText}>Rätt svar!</Text>
+                </View>
               </TouchableOpacity>
+            </Modal>
+
+            <TouchableOpacity
+              onPress={() => {
+                this.setModalVisible(true);
+              }}
+            >
+              <Text>Show Modal</Text>
+            </TouchableOpacity>
           </SwipeContainer>
         </ScrollView>
       </SwipeContainer>
