@@ -12,7 +12,7 @@ import {
   TouchableOpacity,
   TouchableHighlight,
   TouchableWithoutFeedback,
-  Image,
+  Image
 } from "react-native";
 import EStyleSheet from "react-native-extended-stylesheet";
 import { SwipeContainer } from "../components/Container";
@@ -23,7 +23,12 @@ const deviceWidth = Dimensions.get("window").width;
 class JetlineHog1 extends Component {
   constructor(props) {
     super(props);
-    this.state = { text: "", modalVisible: false, myPopUpVisible: false };
+    this.state = {
+      text: "",
+      modalVisible: false,
+      myPopUpVisible: false,
+      wrongVisible: false
+    };
   }
 
   test = () => {
@@ -39,6 +44,10 @@ class JetlineHog1 extends Component {
     // console.warn(this.state.text);
     if (this.state.text == 5)
       this.setMyPopUpVisible(!this.state.myPopUpVisible);
+    else if (this.state.text == "") 
+      null
+    else
+      this.setWrongVisible(!this.state.wrongVisible);
   };
 
   setModalVisible(visible) {
@@ -47,6 +56,12 @@ class JetlineHog1 extends Component {
 
   setMyPopUpVisible(visible) {
     this.setState({ myPopUpVisible: visible });
+    // console.warn('visible');
+    // console.warn(this.state.myPopUpVisible);
+  }
+
+  setWrongVisible(visible) {
+    this.setState({ wrongVisible: visible });
     // console.warn('visible');
     // console.warn(this.state.myPopUpVisible);
   }
@@ -143,7 +158,10 @@ class JetlineHog1 extends Component {
                     textAlign: "center",
                     margin: 5
                   }}
-                  onChangeText={(text) => {this.setState({ text }); this.setState({ myPopUpVisible: false });}}
+                  onChangeText={text => {
+                    this.setState({ text });
+                    this.setState({ myPopUpVisible: false, wrongVisible: false });
+                  }}
                   // onClick=     {(event) => { func1(); func2();}}
                   value={this.state.text}
                   onSubmitEditing={(event, text) => {
@@ -180,12 +198,13 @@ class JetlineHog1 extends Component {
                     {
                       flexDirection: "row",
                       alignItems: "center",
-                      paddingTop: 15,
+                      paddingTop: 15
                     },
                     styles.textWrapper
                   ]}
                 >
-                  <Image style={{height:20, width:20, marginRight:10,}}
+                  <Image
+                    style={{ height: 20, width: 20, marginRight: 10 }}
                     // style={styles.logo}
                     source={require("../assets/icons/check.png")}
                     // source={require('../../images/test.png')}
@@ -194,7 +213,26 @@ class JetlineHog1 extends Component {
                 </View>
               )}
 
-
+              {this.state.wrongVisible && (
+                <View
+                  style={[
+                    {
+                      flexDirection: "row",
+                      alignItems: "center",
+                      paddingTop: 15
+                    },
+                    styles.textWrapper
+                  ]}
+                >
+                  <Image
+                    style={{ height: 20, width: 20, marginRight: 10 }}
+                    // style={styles.logo}
+                    source={require("../assets/icons/cross.png")}
+                    // source={require('../../images/test.png')}
+                  />
+                  <Text style={styles.greyText}>Fel svar..</Text>
+                </View>
+              )}
             </View>
           </KeyboardAvoidingView>
 
